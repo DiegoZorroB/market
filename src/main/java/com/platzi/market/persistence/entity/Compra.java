@@ -2,6 +2,7 @@ package com.platzi.market.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /*
    +Con entity se indica que es una entidad, osea, una tabla
@@ -48,6 +49,36 @@ public class Compra {
 
     //Aqui no se indica a que columna pertenece ya que es igual a la de la BD
     private String estado;
+
+
+    /*
+    +Aqui se hace la relacion de la tabla compra con la tabla cliente
+
+    +ManyToOne indicando que la relacion es muchos a uno
+
+    +JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    indicando con cual columna esta relacionada(En esta clase),
+    ademas diciendo que no se va a actualizar ni insertar datos
+
+    +La variable se crea de tipo Cliente ya que de esa clase se saca
+    la columna con la que se relaciona esta clase
+    */
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
+
+    /*
+    +Aqui se vincula la relacion de tablas entre Compra y ComprasProducto
+
+    +Se declara una lista de tipo ComprasProducto(Clase con la que
+     se relacionrará)
+
+    +El OneToMany es la relacion que tiene con la clase ComprasProducto
+    y el mappedBy se usa para vincularlo con la variable de la clase
+    ComprasProducto que vincula a esta clase
+    */
+    @OneToMany(mappedBy = "producto")
+    private List<ComprasProducto> productos;
 
     //Getters and Setters
 

@@ -1,8 +1,6 @@
 package com.platzi.market.persistence.entity;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 /*
@@ -32,6 +30,40 @@ public class ComprasProducto {
 
     //Aqui no se indica a que columna pertenece ya que es igual a la de la BD
     private Boolean estado;
+
+    /*
+    +Aqui se hace la relacion de la tabla CompraProducto
+     con la tabla Compra
+
+    +ManyToOne indicando que la relacion es muchos a uno
+
+    +JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    indicando con cual columna esta relacionada(En esta clase),
+    ademas diciendo que no se va a actualizar ni insertar datos
+
+    +La variable se crea de tipo Copmra ya que de esa clase se saca
+    la columna con la que se relaciona esta clase
+    */
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false , updatable = false)
+    private Compra compra;
+
+    /*
+    +Aqui se hace la relacion de la tabla CompraProducto
+    con la tabla Producto
+
+    +ManyToOne indicando que la relacion es muchos a uno
+
+    +JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    indicando con cual columna esta relacionada(En esta clase),
+    ademas diciendo que no se va a actualizar ni insertar datos
+
+    +La variable se crea de tipo Producto ya que de esa clase se saca
+    la columna con la que se relaciona esta clase
+    */
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
 
     //Getters and Setters
 

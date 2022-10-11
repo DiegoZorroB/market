@@ -2,6 +2,7 @@ package com.platzi.market.persistence.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 /*
    +Con entity se indica que es una entidad, osea, una tabla
@@ -34,6 +35,19 @@ public class Cliente {
    */
     @Column(name = "correo_electronico")
     private String correoElectronico;
+
+
+    /*
+    +Aqui se vincula la relacion de tablas entre Cliente y Compra
+
+    +Se declara una lista de tipo Compra(Clase con la que se relacionrará)
+
+    +El OneToMany es la relacion que tiene con la clase Compra
+    y el mappedBy se usa para vincularlo con la variable de la clase
+    Compra que vincula a esta clase
+    */
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     //Getters and Setters
 

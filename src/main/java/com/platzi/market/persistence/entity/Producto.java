@@ -58,6 +58,22 @@ public class Producto {
     //Aqui no se indica a que columna pertenece ya que es igual a la de la BD
     private Boolean estado;
 
+    /*
+    +Aqui se hace la relacion de la tabla producto con la tabla categoria
+
+    +ManyToOne indicando que la relacion es muchos a uno
+
+    +JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    indicando con cual columna esta relacionada(en esta clase),
+    ademas diciendo que no se va a actualizar ni insertar datos
+
+    +La variable se crea de tipo Categoria ya que de esa clase se saca
+    la columna con la que se relaciona esta clase
+     */
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
+
     //Getters and Setters
 
     public Integer getIdProducto() {
