@@ -2,10 +2,14 @@ package com.platzi.market.persistence;
 
 import com.platzi.market.persistence.crud.ProductoCrudRepository;
 import com.platzi.market.persistence.entity.Producto;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+//Con Repository indicamos que esta clase interactua con la BD, ya que
+//aqui hacemos operaciones que aplicaran en nuestras tablas de la BD
+@Repository
 public class ProductoRepository {
 
     //Atributo creado a partir de la interfaz ProductoCrudRepository
@@ -47,6 +51,22 @@ public class ProductoRepository {
         y true diciendo que se obtendran los productos que son escasos
          */
         return productoCrudRepository.findByCantidadStockLessThanAndEstado(cantidad,true);
+    }
+
+    //Metodo para obtener un producto segun el id dado
+    public Optional<Producto> getProducto(int idProducto){
+        return productoCrudRepository.findById(idProducto);
+    }
+
+
+    //Metodo para guardar un producto, recibe el producto como parametro
+    public Producto save(Producto producto){
+       return productoCrudRepository.save(producto);
+    }
+
+    //Metodo para borrar un producto segun su idProducto
+    public void delete(int idProducto){
+        productoCrudRepository.deleteById(idProducto);
     }
 
 
