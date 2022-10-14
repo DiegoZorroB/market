@@ -45,6 +45,7 @@ public class ComprasProducto {
     la columna con la que se relaciona esta clase
     */
     @ManyToOne
+    @MapsId("idCompra")
     @JoinColumn(name = "id_compra", insertable = false , updatable = false)
     private Compra compra;
 

@@ -77,7 +77,7 @@ public class Compra {
     y el mappedBy se usa para vincularlo con la variable de la clase
     ComprasProducto que vincula a esta clase
     */
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<ComprasProducto> productos;
 
     //Getters and Setters

@@ -24,7 +24,7 @@ public class Cliente {
     private String apellidos;
 
     //Aqui no se indica a que columna pertenece ya que es igual a la de la BD
-    private Integer celular;
+    private Long celular;
 
     //Aqui no se indica a que columna pertenece ya que es igual a la de la BD
     private String direccion;
@@ -75,13 +75,6 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public Integer getCelular() {
-        return celular;
-    }
-
-    public void setCelular(Integer celular) {
-        this.celular = celular;
-    }
 
     public String getDireccion() {
         return direccion;
@@ -97,5 +90,21 @@ public class Cliente {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public Long getCelular() {
+        return celular;
+    }
+
+    public void setCelular(Long celular) {
+        this.celular = celular;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
     }
 }
