@@ -1,4 +1,4 @@
-package com.platzi.market.web.controller;
+package com.platzi.market.web.controller.controller;
 
 import com.platzi.market.domain.Purchase;
 import com.platzi.market.domain.service.PurchaseService;
